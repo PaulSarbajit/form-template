@@ -1,0 +1,46 @@
+1.
+
+Microtasks are the functions that are completed after they are called from specific functions and only when the call stacks are empty. If our code encounters asynchronous calls in the call stack flow Javascript send them to the call queue and executes the rest of the code in a non-blocking manner. When the call stack is empty event-loop brings these functions from call queue into the call stack to executed. within this call queue there is microtask queue which gets priority that other tasks in the event-loop system.
+
+In this context, execution of Promises is a microtask. So Promises get priority over normal callback or other timing control tasks even though both are asynchronous and are sent to call queue.
+
+2.
+Private: These members are only accessible within the class that instantiated the object. 
+class NameGenerator {
+    #name;
+
+    constructor(name) {
+        this.#name = name;
+    }
+
+    returnName() {
+        return this.#name;
+    }
+
+    #returnAMessage() {
+        return "Your name is" + this.#name;
+    }
+}
+
+const myObject = new NameGenerator("Dave");
+console.log(myObject.returnName()); // Dave
+console.log(myObject["#name"]); // undefined
+console.log(myObject.#name); // SyntaxError
+console.log(myObject.#returnAMessage); // SyntaxError
+
+Protected: A protected member is accessible within the class and any object that inherits from it.
+class NameGenerator {
+    _name;
+
+    constructor(name) {
+        this._name = name;
+    }
+
+    get name() {
+        return this._name;
+    }
+}
+
+let nameGenerator = new NameGenerator("John");
+console.log(`My name is ${nameGenerator.name}`); // My name is John
+nameGenerator.name = "Jane"; // Cannot assign to 'name' because it is a read-only property.
