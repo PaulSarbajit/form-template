@@ -1,0 +1,36 @@
+.form {
+    padding: 5%;
+}
+
+.MuiFormControl-root .MuiInputBase-root {
+    width: 25%;
+}
+
+.MuiFormControl-root .MuiInputBase-root {
+    width: 50%;
+}
+
+.MuiButtonBase-root {
+    width: 15%;
+    left: 30%;
+}
+
+.MuiButtonBase-root.submit-button {
+    margin-right: 5%;
+}
+
+.MuiFormControl-root .error-message {
+    color: red;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
